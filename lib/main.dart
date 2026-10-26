@@ -12,86 +12,108 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
          home: Scaffold( 
           appBar: AppBar(
-          title: Text("My App"),
-          backgroundColor: const Color.fromARGB(255, 70, 81, 245),
-          centerTitle: true, 
-        ),
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(colors:[
-              const Color.fromARGB(255, 190, 221, 235), Colors.blueAccent,
-            ])
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                Text('Welcome Back',
-                   style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold, 
-                    fontSize: 40,
-                   )
-                 ),
-                 SizedBox(
-                  height: 20,
-                  ),
-                 TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.email),
-                    filled: true,
-                    fillColor: Colors.white,
-                    hintText: "Enter Your Email"
-                  ),
-                 ),
-                 SizedBox(
-                  height: 20,
-                  ),
-                  TextField(
-                    obscureText: true,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.password),
-                    filled: true,
-                    fillColor: Colors.white,
-                    hintText: "Enter Pssword"
-                  ),
-                 ),
-                 SizedBox(
-                  height: 20,
-                  ),
-                  Container(
-                    width: double.infinity,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      gradient: LinearGradient(colors: [
-                        const Color.fromARGB(255, 101, 136, 189), const Color.fromARGB(255, 52, 102, 196)
-                      ])
-                    ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor:Colors.white,
-                      ),
-                       onPressed: (){},
-                      child: Text("LogIn", style: TextStyle(
-                        color: Colors.black
-                      ),)),
-                  )
-                ],
+            title: Text('Test'),
+            centerTitle: true,
+           ),
+           body:Column(
+            children: [
+             Expanded(child: 
+             Row( 
+            children: [
+              Expanded(
+                  child:Container(
+                  width:200,
+                  color: const Color.fromARGB(255, 240, 115, 115),
+                )
               ),
-            ),
-          ),
-        )
-      ),
+               Expanded(
+                  child:Container(
+                  width:200,
+                  color: Colors.blueAccent,
+                )
+              ),
+               Expanded(
+                  child:Container(
+                  width:200,
+                  color: Colors.lightBlueAccent,
+                    )
+                  ),
+                  Expanded(
+                  child:Container(
+                  width:200,
+                  color: const Color.fromARGB(255, 36, 80, 100),
+                    )
+                  ),
+                ],
+             ),
+             ),
+
+             Expanded(child: 
+             Row( 
+            children: [
+              Expanded(
+                  child:Container(
+                  width:200,
+                  color: const Color.fromARGB(255, 219, 70, 70),
+                )
+              ),
+               Expanded(
+                  child:Container(
+                  width:200,
+                  color: Colors.pinkAccent,
+                )
+              ),
+               Expanded(
+                  child:Container(
+                  width:200,
+                  color: Colors.pink,
+                    )
+                  ),
+                  Expanded(
+                  child:Container(
+                  width:200,
+                  color: const Color.fromARGB(255, 234, 65, 121),
+                    )
+                  ),
+                ],
+             ),
+             ),
+             Expanded(child: 
+             Row( 
+            children: [
+              Expanded(
+                  child:Container(
+                  width:200,
+                  color: const Color.fromARGB(255, 235, 152, 152),
+                )
+              ),
+               Expanded(
+                  child:Container(
+                  width:200,
+                  color: const Color.fromARGB(255, 210, 90, 188),
+                )
+              ),
+               Expanded(
+                  child:Container(
+                  width:200,
+                  color: const Color.fromARGB(255, 209, 27, 145),
+                    )
+                  ),
+                  Expanded(
+                  child:Container(
+                  width:200,
+                  color: const Color.fromARGB(255, 225, 66, 169),
+                    )
+                  ),
+                ],
+             ),
+             ),
+             
+            ]
+       ),
+     ),
     );
- }
+  }
 }                                             
  
     
