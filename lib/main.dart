@@ -1,62 +1,103 @@
 import 'package:flutter/material.dart';
+import 'package:tour_guide_app/chatHistory.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+class _MyAppState extends State<MyApp> {
+  bool showPassword= true;
+  final passwordController = TextEditingController();
+
+  List<String> students = [
+      "MARYAM", "AYESHA", "MEHAK", "INSHA","ALIHA","SAIMA",
+       "RABIA" ,"ZAINIB","ALIZA","SAMAN","NOOR","IQRA","HIFZA",
+       "ZUNAIRA","KOSAR","MARYAM", "AYESHA", "MEHAK", "INSHA","ALIHA","SAIMA",
+       "RABIA" ,"ZAINIB","ALIZA","SAMAN","NOOR","IQRA","HIFZA",
+       "ZUNAIRA","KOSAR"
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text("LogIn"),
-          backgroundColor: const Color.fromARGB(255, 42, 151, 241)
+        appBar: AppBar(title: Text("Whats App"),
+        centerTitle: true, 
+        backgroundColor: Colors.green,
         ),
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.white, Colors.blue],
-            ),
-          ),
-          child:Column(
-            children: [
-             Text("Welcome Back!",
-               style: TextStyle(
-               fontSize: 24,
-               fontWeight: FontWeight.bold,),
-            ),
-            SizedBox(height: 20),
-            TextField(
-              decoration: InputDecoration(
-                hintText: "Enter your email",
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.email),
+        body:Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+               decoration:InputDecoration(
+                 prefixIcon: Icon(Icons.search),
+                 hintText: "Search here",
+                 border: OutlineInputBorder(
+                   borderRadius: BorderRadius.circular(100.0),
+                )
+               ) ,
               ),
             ),
-             SizedBox(height: 20),
-            const TextField(
-              decoration: InputDecoration(
-                hintText: "Enter your password",
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.lock),
-                suffixIcon: Icon(Icons.visibility),
+            Row(
+              children: [
+                TextButton(onPressed: (){}, child: Text("Unread")),
+                TextButton(onPressed: (){}, child: Text("All")),
+                TextButton(onPressed: (){}, child: Text("Favourites")),
+                TextButton(onPressed: (){}, child: Text("Groups")),
+                TextButton(onPressed: (){}, child: Text("communities")),
+
+              ],
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: students.length,
+                itemBuilder: (context , index){
+                return  Column(
+                  children: [
+                    ListTile(
+                      onTap: (){
+                        print(index);
+                        Get.to(ChatHistory(name: students[index], n: index),);
+                        },
+                          leading: CircleAvatar(
+                            child: Icon(Icons.person)
+                          ),
+                          title: Text(students[index]),
+                          subtitle: Text("How are you?"),
+                          trailing:Column(
+                            children: [
+                               Text("10:00 am"),
+                               CircleAvatar(
+                                radius: 10,
+                                backgroundColor: Colors.green,
+                                child: Text(
+                                  "1",
+                                   style: TextStyle(
+                                     color: Colors.white,
+                                     fontSize: 12
+                                ),
+                              ),
+                            )              
+                          ]                                                                                                      
+                        )
+                      ),
+                    ],
+                  );
+                }
               ),
             ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text("Log In", style: TextStyle(
-                color: Colors.black,
-                fontSize: 18,
-              )),
-            ),
-            ]
-          )
-        )
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: (){},
+          child: Icon(Icons.message)),
       ),
     );
   }
