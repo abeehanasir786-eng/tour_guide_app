@@ -6,7 +6,7 @@ class ChatHistory extends StatefulWidget {
 final String name;
 
 
-List<String> messages = [
+final List<String> messages = [
     "Hello",
     "How are you?",
     "I am fine, thank you!",
